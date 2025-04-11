@@ -1,134 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sonarium</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        #back{
-            background-color: rgba(255, 255, 255, 0);
-            width: 100%;
-            height: 100%;
-            position:absolute;
-            z-index: 0;
-            pointer-events: all;
-        }
-        body {
-            background-color: #000000;
-            font-family: "Montserrat", Helvetica, sans-serif, sans-serif;
-            color: #cfcfcf;
-            margin: 0;
-            padding: 20px;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        h1 {
-            color: #628bb4;
-            font-size: 60px;
-        }
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        svg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            /* transition: all 0.5s ease-in-out; */
-            }
-        #blur{
-            transition: all 0.5s ease-in-out;
-            z-index: -1;
-            opacity: 0.4;
-            filter: blur(60px);
-        }
+      #back {
+        background-color: #ffffff00;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 0;
+        pointer-events: all;
+      }
 
-        #star{
-            z-index: 2;
-            pointer-events: all;
-        }
+      body {
+        background-color: #000000;
+        font-family: "Montserrat", Helvetica, sans-serif, sans-serif;
+        color: #cfcfcf;
+        margin: 0;
+        padding: 20px;
+        pointer-events: none;
+        overflow: hidden;
+      }
 
-        #trail{
-            z-index: 10;
-            width: 75px;
-            height:75px;
-            position: absolute;
-            border: 1px solid #dddddd6b;
-            border-radius: 100%;
-            background-color: #628bb40e;
-            backdrop-filter: blur(10px);
-        }
+      #starsvg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+
+      #star {
+        z-index: 2;
+        pointer-events: all;
+      }
+
+      #trail {
+        z-index: 10;
+        width: 75px;
+        height: 75px;
+        position: absolute;
+        border: 1px solid #ffffff81;
+        border-radius: 100%;
+        background-color: #4445830e;
+        backdrop-filter: blur(10px);
+      }
+
+      #blur {
+        opacity: 0.7;
+        width: auto;
+        height: 100%;
+        z-index: -1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-image: url("rock.png");
+      }
     </style>
-</head>
-<body>
+  </head>
 
+  <body>
     <div id="back"></div>
-    <svg id='blur' width="612" height="607" viewBox="0 0 612 607" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <path d="M269.948 12.1009C291.302 -3.95157 320.698 -3.95156 342.052 12.1009L587.854 196.872C608.171 212.145 616.661 238.561 609.045 262.81L514.342 564.374C506.488 589.382 483.31 606.397 457.098 606.397H154.902C128.69 606.397 105.512 589.382 97.6583 564.374L2.9545 262.81C-4.66071 238.561 3.82903 212.145 24.1457 196.872L269.948 12.1009Z" fill="url(#img)"/>
-        <defs>
-            <pattern id="img" patternUnits="userSpaceOnUse" width="650" height="650">
-              <image href="bg.png" x="0" y="0" width="650" height="650" />
-            </pattern>
-          </defs>
-        </svg>
-        <svg id='starsvg' width="612" height="607" viewBox="0 0 612 607" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <path id="star" d="M269.948 12.1009C291.302 -3.95157 320.698 -3.95156 342.052 12.1009L587.854 196.872C608.171 212.145 616.661 238.561 609.045 262.81L514.342 564.374C506.488 589.382 483.31 606.397 457.098 606.397H154.902C128.69 606.397 105.512 589.382 97.6583 564.374L2.9545 262.81C-4.66071 238.561 3.82903 212.145 24.1457 196.872L269.948 12.1009Z" fill="url(#img)"/>
-            <defs>
-                <pattern id="img" patternUnits="userSpaceOnUse" width="1080" height="1080">
-                  <image href="bg.png" x="0" y="0" width="1080" height="1080" />
-                </pattern>
-              </defs>
-            </svg>
-    <div id="trail">
+    <div id="trail"></div>
+    <img src="rock.png" alt="blur" id="blur" />
+    <svg
+      id="starsvg"
+      width="612"
+      height="607"
+      viewBox="0 0 612 607"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+    >
+      <path
+        id="star"
+        d="M269.948 12.1009C291.302 -3.95157 320.698 -3.95156 342.052 12.1009L587.854 196.872C608.171 212.145 616.661 238.561 609.045 262.81L514.342 564.374C506.488 589.382 483.31 606.397 457.098 606.397H154.902C128.69 606.397 105.512 589.382 97.6583 564.374L2.9545 262.81C-4.66071 238.561 3.82903 212.145 24.1457 196.872L269.948 12.1009Z"
+        fill="url(#img)"
+      />
+      <defs>
+        <pattern
+          id="img"
+          patternUnits="userSpaceOnUse"
+          width="650"
+          height="650"
+        >
+          <image href="bg.png" x="0" y="0" width="650" height="650" />
+        </pattern>
+      </defs>
+    </svg>
 
-    </div>
-        <script>
-            var inStar = true
-            var body = document.body;
-            var trail = document.getElementById('trail');
-            var star = document.getElementById('star');
-            var blur = document.getElementById('blur');
-            // var starsvg = document.getElementById('starsvg');
-            var mouseX = window.innerWidth/2, mouseY = window.innerHeight/2, trailX = window.outerWidth/2, trailY = window.outerHeight/2;
-            var back = document.getElementById('back')
-            body.addEventListener('mousemove', function(e) {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                // console.log(mouseX, mouseY);
-                // console.log(trailX, trailY);
-                // console.log(e.clientX, e.clientY);
-            });
+    <script>
+      var inStar = true;
+      var body = document.body;
+      var trail = document.getElementById("trail");
+      var star = document.getElementById("star");
+      var mouseX = window.innerWidth / 2,
+        mouseY = window.innerHeight / 2,
+        trailX = window.outerWidth / 2,
+        trailY = window.outerHeight / 2;
+      var back = document.getElementById("back");
+      body.addEventListener("mousemove", function (e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
 
-            function animateTrail() {
-                trailX += (mouseX - trailX) * 0.1; // Adjust the 0.1 for more or less stagger
-                trailY += (mouseY - trailY) * 0.1;
+      function animateTrail() {
+        trailX += (mouseX - trailX) * 0.1; // Adjust for more or less stagger
+        trailY += (mouseY - trailY) * 0.1;
 
-                trail.style.left = (trailX - 75/2) + 'px';
-                trail.style.top = (trailY - 75/2) + 'px';
-                // THIS CODE HAS BEEN COMMENTED OUT FOR SLOWING DOWN PERFORMANCE. I can be uncommented for lagged trails and more aesthetics.
-                    // if(inStar){
-                    //     blur.style.opacity = 0.6;
-                    // }else{
-                    //     blur.style.opacity = 0;
-                    // }
-                requestAnimationFrame(animateTrail);
-            }
+        trail.style.left = trailX - 75 / 2 + "px";
+        trail.style.top = trailY - 75 / 2 + "px";
+        // THIS CODE HAS BEEN COMMENTED OUT FOR SLOWING DOWN PERFORMANCE. Can be uncommented for lagged trails and more aesthetics.
+        // if(inStar){
+        //     blur.style.opacity = 0.6;
+        // }else{
+        //     blur.style.opacity = 0;
+        // }
+        requestAnimationFrame(animateTrail);
+      }
 
-            animateTrail();
+      animateTrail();
 
-
-            back.addEventListener('mousemove', function(e) {
-                inStar = false;
-            });
-            star.addEventListener('mousemove', function(e) {
-                inStar = true;
-            });
-        </script>
-
-</body>
+      back.addEventListener("mousemove", function (e) {
+        inStar = false;
+      });
+      star.addEventListener("mousemove", function (e) {
+        inStar = true;
+      });
+    </script>
+  </body>
 </html>
