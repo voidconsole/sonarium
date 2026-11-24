@@ -10,62 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <style>
-      #back {
-        background-color: #ffffff00;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        z-index: 0;
-        pointer-events: all;
-      }
-
-      body {
-        background-color: #000000;
-        font-family: "Montserrat", Helvetica, sans-serif, sans-serif;
-        color: #cfcfcf;
-        margin: 0;
-        padding: 20px;
-        pointer-events: none;
-        overflow: hidden;
-      }
-
-      #starsvg {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
-      }
-
-      #star {
-        z-index: 2;
-        pointer-events: all;
-      }
-
-      #trail {
-        z-index: 10;
-        width: 75px;
-        height: 75px;
-        position: absolute;
-        border: 1px solid #ffffff81;
-        border-radius: 100%;
-        background-color: #4445830e;
-        backdrop-filter: blur(10px);
-      }
-
-      #blur {
-        opacity: 0.7;
-        width: auto;
-        height: 100%;
-        z-index: -1;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-image: url("rock.png");
-      }
-    </style>
+	<link rel="stylesheet" href="style.css">
   </head>
 
   <body>
@@ -98,64 +43,6 @@
       </defs>
     </svg>
 
-    <script>
-      var inStar = true;
-      const P = (x, y) => ({ x, y });
-      const body = document.body;
-      const trail = document.getElementById("trail");
-      const star = document.getElementById("star");
-      const starRect = document
-        .getElementById("starsvg")
-        .getBoundingClientRect();
-      const back = document.getElementById("back");
-      // const fivePoints = USE THE CODE FROM PC;
-      // (306, 0)
-      // (606, 226)
-      // (495, 595)
-      // (120, 595)
-      // (6, 226)
-      // these are coords with respect to the bounding box client.
-      // therefore, dist =  dist(relative.xY, fivePointCoords)
-
-      var mouse = P(window.innerWidth / 2, window.innerHeight / 2);
-      var trailer = P(window.outerWidth / 2, window.outerHeight / 2);
-      var relative = P(mouse.x - starRect.left, mouse.y - starRect.top);
-
-      body.addEventListener("mousemove", function (e) {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-        relative.x = mouse.x - starRect.left;
-        relative.y = mouse.y - starRect.top;
-      });
-
-      function animateTrail() {
-        trailer.x += (mouse.x - trailer.x) * 0.1; // Adjust the 0.1 for more or less stagger
-        trailer.y += (mouse.y - trailer.y) * 0.1;
-
-        trail.style.left = trailer.x - 75 / 2 + "px";
-        trail.style.top = trailer.y - 75 / 2 + "px";
-        // THIS CODE HAS BEEN COMMENTED OUT FOR SLOWING DOWN PERFORMANCE. I can be uncommented for lagged trails and more aesthetics.
-        // if(inStar){
-        //     blur.style.opacity = 0.6;
-        // }else{
-        //     blur.style.opacity = 0;
-        // }
-
-        // if (mouse.x!==trailer.x&&mouse.y!==trailer.y) { // do not use this code. it dose not work.
-        requestAnimationFrame(animateTrail);
-        // console.log(
-        //   `Is inside? ${inStar}. current coords: (${mouse.x}, ${mouse.y}), relative position ${relative.x}, ${relative.y})`
-        // );
-        // }
-      }
-
-      animateTrail();
-      back.addEventListener("mousemove", function (e) {
-        inStar = false;
-      });
-      star.addEventListener("mousemove", function (e) {
-        inStar = true;
-      });
-    </script>
+    <script src="script.js" type="text/javascript"></script>
   </body>
 </html>

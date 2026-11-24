@@ -1,0 +1,56 @@
+
+      #back {
+        background-color: #ffffff00;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 0;
+        pointer-events: all;
+      }
+
+      body {
+        background-color: #000000;
+        font-family: "Montserrat", Helvetica, sans-serif, sans-serif;
+        color: #cfcfcf;
+        margin: 0;
+        padding: 20px;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      #starsvg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+
+      #star {
+        z-index: 2;
+        pointer-events: all;
+      }
+
+      #trail {
+        z-index: 10;
+        width: 75px;
+        height: 75px;
+        position: absolute;
+        border: 1px solid #ffffff81;
+        border-radius: 100%;
+        background-color: #4445830e;
+        backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+      }
+
+      #blur {
+        opacity: 0.7;
+        width: auto;
+        height: 100%;
+        z-index: -1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-image: url("rock.png");
+      }
